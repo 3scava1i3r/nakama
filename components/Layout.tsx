@@ -12,6 +12,7 @@ import { minWidthTile, maxWidthTile, SortMethod} from '../contexts/cardSettings'
 import Sidebar from  './Sidebar'
 import {useThrottle} from '@react-hook/throttle'
 import {useRef} from 'react'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const StyledMain = styled('main', {
     boxSizing: 'border-box',
@@ -55,12 +56,12 @@ const StyledHeader = styled('header', {
                 mixBlendMode:'multiply',
                 justifyContent: 'center',
                 padding: '$2 $4',
-                height:'$4',
+                height:'$8',
                 backdropFilter:'opacity(0.1)'
             },
             default:{
                 padding: '$2 $4',
-                height:'$4',
+                height:'$8',
             },
         }
     },
@@ -90,6 +91,8 @@ const Header = ({scrollY, children, scrollTransitionValue,scrollDirection, isSel
         <StyledHeader size={'default'}>
                         <Box layout='flexBoxRow' css={{gap:'$1', alignItems:'center'}}>
                                 {/* <Auth /> */}
+                                <ConnectButton />
+
                                 <Box as={'span'} css={{ color: 'lightgray', userSelect:'none' }}>|</Box>
                             {!isSelected && (
                                 <>{children}</>

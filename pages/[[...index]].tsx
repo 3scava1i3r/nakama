@@ -113,7 +113,7 @@ const Home: NextPage = ({ selected}:Props) => {
                 className='flex w-full'
                 style={{
                   flexWrap:'wrap',
-                  padding:'640px 40px 0 40px',
+                  padding:!selected ? '640px 40px 0 40px' : '56px 0 0 0',
                   margin:'0',
                   marginLeft:!selected ?  '-8px' : '0',
                   overflow:'visible',
@@ -148,12 +148,16 @@ const Home: NextPage = ({ selected}:Props) => {
                                   uniqueVoters={item.uniqueVoters}
                                 />
                               )
-                            } else {
-                              return (
-                                <Fragment
-                                  key={item.name+'fragment'}
-                                ></Fragment>)
                             }
+                            
+                            // else {
+                            //   return (
+                            //     <>
+                            //     <Fragment
+                            //       key={item.name+'fragment'}
+                            //     ></Fragment>
+                            //     </>)
+                            // }
                     })}
   </AnimatePresence>
            </Masonry>
