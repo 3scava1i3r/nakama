@@ -368,6 +368,7 @@ const ProtocolTile = ({ container,  cname, minWidth, maxWidth, name, onClick, to
                                 border={border}
                                 shadow={shadow}
                                 name={cname}/>
+                                
 
                             </BoxMotion>
 

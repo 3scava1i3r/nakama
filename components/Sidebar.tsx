@@ -181,7 +181,7 @@ const Sidebar = () => {
                             legendOffset: 6,
                         }}
                          colors={(options)=>{
-                             console.log('color color', options.color)
+                            //  console.log('color color', options.color)
                              return '#000000'
                          }}
                         yFormat=" >-.0f"
@@ -304,7 +304,7 @@ const Sidebar = () => {
                     <h5>Top 10 by token price: </h5>
                     {[...protocols].sort((a:any,b:any)=>{
                         if(a.tokens && b.tokens){
-                            console.log('token:',a.tokens , b.tokens)
+                            // console.log('token:',a.tokens , b.tokens)
                         return 99
                         } else return b-a
                     }).slice(0,10).map((i:any)=>(

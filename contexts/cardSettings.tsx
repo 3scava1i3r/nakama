@@ -21,7 +21,7 @@ export const SortMethod = atom({
 })
 
 export interface DisplayTypes {
-    type:'all' | 'my'
+    type:'all' | 'my' | 'myProfile'
 }
 
 export const DisplayMethod = atom({

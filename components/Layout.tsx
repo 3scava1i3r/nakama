@@ -93,7 +93,7 @@ const Header = ({scrollY, children, scrollTransitionValue,scrollDirection, isSel
                                 {/* <Auth /> */}
                                 <ConnectButton />
 
-                                <Box as={'span'} css={{ color: 'lightgray', userSelect:'none' }}>|</Box>
+                                {/* <Box as={'span'} css={{ color: 'lightgray', userSelect:'none' }}>|</Box> */}
                             {!isSelected && (
                                 <>{children}</>
                             )}
@@ -118,7 +118,7 @@ const Header = ({scrollY, children, scrollTransitionValue,scrollDirection, isSel
                             )}
                         </Box>
                         <Box as='p' css={{color:'gray',userSelect:'none', marginLeft:'$1', textTransform:'uppercase'}}>
-                           NAKAMA
+                           Nakama
                         </Box>
                         {/* <Search /> */}
                
@@ -191,8 +191,8 @@ const Layout = ({children, isSelected}:PropsLayout) =>{
                 </StyledMain>
                 {!isSelected && (
                     <StyledFooter>
-                        <span style={{fontSize:'inherit'}}>BoardRoom Governance</span>
-                        <span style={{ fontSize: 'inherit' }}>2021</span>
+                        <span style={{fontSize:'inherit'}}>Nakama</span>
+                        <span style={{ fontSize: 'inherit' }}>2023</span>
                     </StyledFooter>
                 )}
                

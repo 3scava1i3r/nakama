@@ -53,7 +53,6 @@ const Home: NextPage = ({ selected}:Props) => {
   const [display, setDisplay] = useRecoilState(DisplayMethod)
   const container = useRef(null)
 
-  console.log('work::',displayProtocols)
 
   useEffect(()=>{
     if(data){
@@ -94,6 +93,31 @@ const Home: NextPage = ({ selected}:Props) => {
             onClick={()=>{setDisplay({type:'my'})}}
             color={display.type === 'my' ? 'black' : 'gray'} look='outlined'>
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.49991 0.877075C3.84222 0.877075 0.877075 3.84222 0.877075 7.49991C0.877075 11.1576 3.84222 14.1227 7.49991 14.1227C11.1576 14.1227 14.1227 11.1576 14.1227 7.49991C14.1227 3.84222 11.1576 0.877075 7.49991 0.877075ZM1.82708 7.49991C1.82708 4.36689 4.36689 1.82707 7.49991 1.82707C10.6329 1.82707 13.1727 4.36689 13.1727 7.49991C13.1727 10.6329 10.6329 13.1727 7.49991 13.1727C4.36689 13.1727 1.82708 10.6329 1.82708 7.49991ZM8.37287 7.50006C8.37287 7.98196 7.98221 8.37263 7.5003 8.37263C7.01839 8.37263 6.62773 7.98196 6.62773 7.50006C6.62773 7.01815 7.01839 6.62748 7.5003 6.62748C7.98221 6.62748 8.37287 7.01815 8.37287 7.50006ZM9.32287 7.50006C9.32287 8.50664 8.50688 9.32263 7.5003 9.32263C6.49372 9.32263 5.67773 8.50664 5.67773 7.50006C5.67773 6.49348 6.49372 5.67748 7.5003 5.67748C8.50688 5.67748 9.32287 6.49348 9.32287 7.50006Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>  My Protocols
+            </Button>
+            <Button 
+            selected={display.type === 'myProfile' ? true : false}
+            onClick={()=>{setDisplay({type:'myProfile'})}}
+            color={display.type === 'myProfile' ? 'black' : 'gray'} look='outlined'>
+              
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="15" height="15" viewBox="0 0 50.000000 50.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,50.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M155 456 c-60 -28 -87 -56 -114 -116 -36 -79 -19 -183 42 -249 33
+-36 115 -71 167 -71 52 0 134 35 167 71 34 37 63 110 63 159 0 52 -35 134 -71
+167 -37 34 -110 63 -159 63 -27 0 -65 -10 -95 -24z m180 -15 c76 -34 125 -113
+125 -201 0 -41 -33 -118 -54 -126 -8 -3 -35 4 -60 15 -52 23 -57 38 -26 89 20
+32 28 120 14 156 -18 48 -128 57 -159 13 -23 -32 -20 -129 5 -169 31 -51 26
+-66 -26 -89 -25 -11 -52 -18 -60 -15 -23 9 -54 86 -54 134 -1 151 159 255 295
+193z m-44 -57 c29 -14 30 -18 27 -72 -1 -32 -10 -72 -21 -91 -29 -54 -20 -82
+38 -110 46 -22 48 -24 30 -37 -23 -17 -81 -34 -115 -34 -34 0 -92 17 -115 34
+-18 13 -16 15 30 37 58 28 68 56 37 110 -11 21 -20 57 -21 91 -1 48 2 59 21
+72 28 20 51 20 89 0z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+</g>
+</svg>
+  My Profile
             </Button>
           </Box>
            <Box css={{color:'gray'}}>Protocols: {displayProtocols.length}</Box>

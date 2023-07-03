@@ -11,8 +11,12 @@ import {  useState, useEffect } from 'react'
 
 
 
-const fetcher = (url: string) => axios.get(url).then(res => res.data)
+// const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
+
+const fetcher = (url:string) => axios.get(url,{params: {includeContractMetadata: 'true', key: process.env.NEXT_PUBLIC_API_KEY},
+headers: {Accept: 'application/json'}}
+).then(res => res.data)
 export type ProtocolData = {
     refId: string,
     title: string,
