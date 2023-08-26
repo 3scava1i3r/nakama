@@ -18,6 +18,30 @@ import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil'
 import Introduction from '../components/Introduction'
 import { useRouter } from 'next/router'
 
+const MasonryWrapper = ({ children }) => {
+  return (
+    <Masonry
+      //  updateOnEachImageLoad={true}
+      ref={container}
+      // onLayoutComplete={(e)=>{
+      //   console.log('masonry event complete', e)
+      // }}
+      options={{
+        transitionDuration: 0,
+      }}
+      className="flex w-full"
+      style={{
+        flexWrap: 'wrap',
+        padding: !selected ? '640px 40px 0 40px' : '56px 0 0 0',
+        margin: '0',
+        marginLeft: !selected ? '-8px' : '0',
+        overflow: 'visible',
+      }}>
+      {children}
+    </Masonry>
+  )
+}
+
 interface NewAnimatePresenceProps extends Omit<AnimatePresenceProps, 'children'> {
   children: React.ReactNode
 }
@@ -219,48 +243,46 @@ const Home: NextPage = ({ selected }: Props) => {
             margin: '0',
             marginLeft: !selected ? '-8px' : '0',
             overflow: 'visible',
-            render: () => (
-              <AnimatedComponent>
-                {displayProtocols.map((item: Protocol) => {
-                  //need to debug it, but for some reasons items with 0 values don't open
-                  if (item.totalProposals === 0 && item.totalVotes === 0 && item.uniqueVoters === 0) {
-                    return <Fragment key={item.name + 'fragment'}></Fragment>
-                  }
-                  if (item.cname === selected || selected === null) {
-                    return (
-                      <ProtocolTile
-                        container={container.current}
-                        minWidth={minWidth}
-                        maxWidth={maxWidth}
-                        onClick={() => {
-                          if (selected === null) {
-                            router.push(`./${item.cname}`)
-                          }
-                        }}
-                        key={item.name}
-                        selected={item.cname === selected ? true : false}
-                        icons={item.icons}
-                        name={item.name}
-                        cname={item.cname}
-                        totalProposals={item.totalProposals}
-                        totalVotes={item.totalVotes}
-                        uniqueVoters={item.uniqueVoters}
-                      />
-                    )
-                  }
-                  // else {
-                  //   return (
-                  //     <>
-                  //     <Fragment
-                  //       key={item.name+'fragment'}
-                  //     ></Fragment>
-                  //     </>)
-                  // }
-                })}
-              </AnimatedComponent>
-            ),
-          }}
-        />
+          }}>
+          <AnimatedComponent>
+            {displayProtocols.map((item: Protocol) => {
+              //need to debug it, but for some reasons items with 0 values don't open
+              if (item.totalProposals === 0 && item.totalVotes === 0 && item.uniqueVoters === 0) {
+                return <Fragment key={item.name + 'fragment'}></Fragment>
+              }
+              if (item.cname === selected || selected === null) {
+                return (
+                  <ProtocolTile
+                    container={container.current}
+                    minWidth={minWidth}
+                    maxWidth={maxWidth}
+                    onClick={() => {
+                      if (selected === null) {
+                        router.push(`./${item.cname}`)
+                      }
+                    }}
+                    key={item.name}
+                    selected={item.cname === selected ? true : false}
+                    icons={item.icons}
+                    name={item.name}
+                    cname={item.cname}
+                    totalProposals={item.totalProposals}
+                    totalVotes={item.totalVotes}
+                    uniqueVoters={item.uniqueVoters}
+                  />
+                )
+              }
+              // else {
+              //   return (
+              //     <>
+              //     <Fragment
+              //       key={item.name+'fragment'}
+              //     ></Fragment>
+              //     </>)
+              // }
+            })}
+          </AnimatedComponent>
+        </Masonry>
 
         {isValidating && (
           <Box layout="flexBoxRow" css={{ width: '100%', justifyContent: 'center', height: '520px', padding: '$2', alignItems: 'center' }}>
